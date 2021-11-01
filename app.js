@@ -34,15 +34,6 @@ function navigate(pg){
         }
 }
 
-var startnum = 0
-var start = document.body.querySelector(".start");
-
-function add1 (add){
-    if(addone === "Increase Counter") {
-        startnum = startnum + 1
-        start.innerHTML = "Counter: " + startnum
-    }
-}
 
 function homePage(){
     var wrapper=document.body.querySelector(".wrapper");
@@ -69,11 +60,24 @@ function interactPage(){
     var header = document.createElement("h1");
     header.innerHTML="Interact";
     wrapper.appendChild(header);
-    document.body.querySelector(".button").addEventListener("click" ,function(){
-    addone = "Increase Counter";
-    add1 (1);
+    var button = document.createElement("button");
+    button.innerHTML = "Increase Counter";
+    wrapper.appendChild(button);
+    var startnum = 0
+    var start = document.body.querySelector(".start");
+
+    function add1 (add){
+        if(addone === "Increase Counter") {
+            startnum = startnum + 1
+        }
+    }
+    button.addEventListener("click" ,function(){
+        addone = "Increase Counter";
+        add1 (1);
+        start.innerHTML = "Counter: " + startnum
     })
 }
+
 
 
 createNav();
